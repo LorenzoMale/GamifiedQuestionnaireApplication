@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>New Questionnaire</title>
+</head>
+<body>
+<form action="Create" method="POST">
+		
+            
+	      <th:block th:each="i: ${#numbers.sequence(1, numberOfQuestions)}">
+	
+	    <div>
+           <li th:utext="'<b>QUESTION ' + ${i} +' :  </b>'">here comes the question</li>
+           
+           <div >
+           <textarea id="questions" name="marketingQuestions" rows="2" cols="40" placeholder="write here the question..."  required  ></textarea>
+  			</div>
+  				
+       </div>   
+        
+	    <br>
+	    <br>
+	    
+	</th:block>  
+	    
+	    <br>
+	    
+	    <input type="submit" value="Submit">
+	    
+	</form>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+<!--<link rel="stylesheet" type="text/css" media="all"
+	 href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" /> -->
+</head>
+<body>
+ 	<div align="right">
+		<!--  <a th:href="@{/UpdateProfile}">Profile</a>-->
+	</div>
+	<div align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	
+	<h1>This is today's product</h1>
+	<p
+		th:text="${'Nice to see you again ' + session.user.username }"></p>
+
+	<div>
+		<img alt="photo" width="200px"
+			th:src="*{'data:image/png;base64,'+ session.product.getImageData()}">
+		<p th:text="${session.product.getDescription()}"></p>
+		
+	</div>
+	
+	<div>
+	
+		<th:block th:if="${!reviews.isEmpty()}">
+		<h3>USER REVIEWS:</h3>
+		<ul th:each="rev : ${reviews}">
+     	<li th:utext="'<b>User ' + ${revStat.index} +' said:  </b>'+ ${rev.getReviewString()}"></li>
+</ul>
+</div>
+</th:block>
+	
+		
+	<div >
+		<a th:href="@{/GoToMarketingQuestionnaire}" th:utext="${compilingPermitted}"></a>
+	</div>
+	
+	<form action="Leaderboard" method="POST">
+		<button>LEADERBOARD</button>
+   	</form>
+		<!-- <div>
+		<p>Complete the form to create a mission</p>
+		 <form action="#" th:action="@{/CreateMission}" method="POST">
+			<fieldset>
+				<p>
+					Destination: <input type="text" name="destination" required />
+				</p>
+				<p>
+					Description: <input type="text" name="description" required />
+				</p>
+				<p>
+					Start Day: <input type="date" name="date"
+						th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}"
+						placeholder="yyyy-mm-dd" required />
+				</p>
+				<p>
+					Duration (in days): <input type="number" name="days" min=0 required />
+				</p>
+
+				<p>
+					<label for="projects">Choose a project:</label> 
+					<select name="projectId" id="projectId">
+						<option th:each="p : ${projects}" th:value="${p.id}"
+							th:text="${p.name}"></option>
+					</select>
+				</p>
+
+
+				<input type="submit" name="Create Mission">
+			</fieldset>
+		</form>
+	</div>-->
+</body>
+</html>

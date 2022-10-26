@@ -1,0 +1,11 @@
+table, th, tr {
+  border: 1px solid black;
+}
+
+#aligneddiv1 {
+    display: inline-block;
+}
+
+#aligneddiv2 {
+    display: inline-block;
+}

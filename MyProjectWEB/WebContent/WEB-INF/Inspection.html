@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Deletion page</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+
+
+<h1>Product's questionnaire inspection</h1>
+
+
+<br>
+<br>
+
+
+  
+
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Date</th>
+				<th>Delete</th>
+				<th>View Users</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="prod : ${oldProducts}">
+				<td th:text="${ prod.name}"></td>
+				<td th:text="${ prod.getQuestionnaireDate()}"></td>
+				<td><a th:href="@{/DeleteQuestionnaire(prodid=${prod.id})}">Delete</a></td>
+				<td><a th:href="@{/ViewUsers(prodid=${prod.id})}">Inspect</a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+    
+    <form action="Home" method="POST">
+       <button>Go back</button>
+    </form>
+
+</body>
+</html>

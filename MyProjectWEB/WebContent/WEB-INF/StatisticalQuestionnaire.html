@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Statistical part</title>
+</head>
+<body>
+
+
+<form action="Greetings" method="POST">
+	
+   
+   Age: <input type="text" name="age" >
+   
+   <br>
+   <br>
+   
+   Sex: <select id="sex" name="sex">
+    <option value=" " selected disabled hidden>Select an Option</option>
+  	<option value="male">male</option>
+  	<option value="female">female</option>
+  	<option value="other">other</option>
+   	</select>
+   
+   <br>
+   <br>
+   
+   Expertise level: <select id="level" name="level">
+    <option value=" " selected disabled hidden>Select an Option</option>
+  	<option value="low">low</option>
+  	<option value="medium">medium</option>
+  	<option value="high">high</option>
+   	</select>
+   <br>
+   <br>
+    <div>
+	   <textarea id="review" name="review" rows="4" cols="40"placeholder="write here a review"></textarea>
+  	</div>
+   <br>
+   <input type="submit" value="End and Send">
+	   
+</form>
+	    
+	    
+	     <br>
+	    <button onclick="history.back()">Go Back</button>
+	    
+	    <br>
+	    
+	    <form action="UserDeletesQuestionnaire" method="POST">
+		<button>Delete All</button>
+   		</form>
+
+</body>
+</html>

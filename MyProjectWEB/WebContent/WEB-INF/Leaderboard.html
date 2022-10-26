@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>LEADERBOARD</title>
+</head>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+<body>
+
+<table>
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Points</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="us : ${leaderboard}">
+				<td th:text="${us.getUser().getUsername()}"></td>
+				<td th:text="${us.getPoints()}"></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<p th:text=" ${emptyLeaderboard}"></p>
+		<div >
+		<a th:href="@{/Home}">HOME PAGE</a>
+	</div>
+
+
+</body>
+</html>

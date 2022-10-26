@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Answers</title>
+</head>
+<body>
+<!-- <th:block th:each="ques:${questions}"> -->
+<th:block th:each= "a:${answers}">
+	
+		<div>
+           <li th:utext="'<b>Question ' + ${aStat.index} +' :  </b>'+ ${a.getQuestion().getQuestionString()}">question</li>
+           
+              <li th:utext="'<b>Answer' + ${aStat.index} +' :  </b>'+ ${a.getAnswerString()}">answer</li>
+
+	    </div>
+</th:block>
+   <button onclick="history.back()">Go Back</button>
+   
+        <form action="Home" method="POST">
+       <button>HOME</button>
+    </form>
+</body>
+</html>

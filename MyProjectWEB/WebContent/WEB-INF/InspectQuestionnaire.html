@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" media="all"
+	href="../CSS/mystyle.css" th:href="@{/css/mystyle.css}" />
+</head>
+<body>
+
+
+<h1>Product's questionnaire deletion</h1>
+
+
+<br>
+<br>
+
+
+  
+
+	<table>
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Answers</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="u : ${users}">
+				<td th:text="${ u.username}"></td>
+				<td><a th:href="@{/UserAnswers(userid=${u.id})}">view answers</a></td>				
+			</tr>
+		</tbody>
+	</table>
+    
+    <form action="Home" method="POST">
+       <button>Go back</button>
+    </form>
+
+</body>
+</html>

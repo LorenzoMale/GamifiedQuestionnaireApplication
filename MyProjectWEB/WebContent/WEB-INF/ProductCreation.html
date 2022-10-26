@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+<h1>Create product of the day</h1>
+
+<form action="Questionnaire" method="POST" enctype="multipart/form-data">
+	 <fieldset>
+	 
+				
+				<p>
+					<b>Name: </b> <input type="text" name="name" required />
+				</p>
+
+				<p>
+					<b>Description: </b> <textarea id="description" name="description" rows="2" cols="50" placeholder="Write here the description of the product..." ></textarea>
+
+				</p>
+
+				<p>
+					<b>Upload image: </b> <input type="file" id="imageFile" name="image" required>
+				</p>
+				
+				<p>
+					<b>How many marketing questions: </b> <input type="number" id="questionnaireLength" name="questionnaireLength" required>
+				</p>
+				
+				<p>
+					<b>Date in which will be product of the day: </b> <input type="date" name="date" th:attr="min=${#dates.format(#dates.createNow(), 'yyyy-MM-dd')}" placeholder="yyyy-mm-dd" required />
+				</p>
+				
+		
+		<input type="submit" name="Create Product" value="create">
+				
+	</fieldset>
+			
+</form>
+
+
+</body>
+</html>

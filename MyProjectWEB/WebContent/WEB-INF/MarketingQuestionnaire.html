@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Marketing part</title>
+</head>
+<body>
+
+
+<form action="StatisticalQuestionnaire" method="POST">
+	 <th:block th:each="question:${marketingQuestions}">
+	
+		<div>
+           <p th:utext="'<b>Question ' + ${questionStat.index} +' :  </b>'+ ${question.getQuestionString()}" >  here comes the question </p>
+           
+           <div th:if="${session.marketingAnswers}">
+           <textarea id="answer" name="marketingAnswers" rows="2" cols="40" th:utext="#{session.marketingAnswers[${questionStat.index}]}"  required  ></textarea>
+  			</div>
+  			
+  			<div th:unless="${session.marketingAnswers}">
+           <textarea id="answer" name="marketingAnswers" rows="2" cols="40"   required  ></textarea>
+  			</div>
+           
+	    </div>
+	    
+	 </th:block>
+	    
+	    <br>
+	    <input type="submit" value="Go to next section ->">
+	    
+	    </form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Questionnaire not available</title>
+</head>
+<body>
+ 	<div align="right">
+		<!--  <a th:href="@{/UpdateProfile}">Profile</a>-->
+	</div>
+	<div align="right">
+		<a th:href="@{/Logout}">Logout</a>
+	</div>
+	
+	<h1>Sorry, the product hasn't been uploaded yet. See you later!</h1>
+	<p
+		th:text="${'Nice to see you again,  ' + session.user.username }"></p>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Users list</title>
+
+</head>
+<body>
+
+<TABLE CELLPADDING=40> <!--- Tabella invisibile che fa da contenitore --->
+<TR>
+
+<TD> <!--- Inizio della prima cella invisibile --->
+
+<!--- Prima tabella --->
+
+<TABLE BORDER=1 ><CAPTION>Users who have compiled questionnaire</CAPTION>
+<TR>
+	<TH width=20>User</TH>
+	<TH>Answers</TH>
+</TR>
+	<tbody>
+		<tr th:each="l : ${validRecords}">
+			<td th:text="${l.getUser().getUsername()}"></td>
+			<td><a th:href="@{/UserAnswers(userid=${l.getUser().getId()})}">View</a></td>
+		</tr>
+	</tbody>
+</TABLE>
+
+</TD> <!--- Fine della prima cella invisibile --->
+
+<TD> <!--- Inizio della seconda cella invisibile --->
+
+<!--- Seconda tabella --->
+<TABLE BORDER=1><CAPTION>Users who have deleted questionnaire</CAPTION>
+<TR>
+	<TH width=30>User</TH>
+</TR>
+	<tbody>
+		<tr th:each="nl : ${notValidRecords}">
+			<td th:text="${nl.getUser().getUsername()}"></td>
+		</tr>
+	</tbody>
+</TABLE>
+
+</TD> <!--- Fine della seconda cella invisibile --->
+
+</TR>
+</TABLE>
+    <form action="Inspection" method="POST">
+       <button>Go back</button>
+    </form>
+</body>
+</html>
